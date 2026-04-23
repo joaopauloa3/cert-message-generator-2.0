@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Teste v2 - Gerador de Mensagens</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #6366f1;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --border: #e2e8f0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead {
+            background-color: #f1f5f9;
+        }
+
+        th {
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #475569;
+            border-bottom: 2px solid var(--border);
+        }
+
+        tbody tr {
+            transition: background-color 0.2s;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        td {
+            padding: 14px 20px;
+            font-size: 0.875rem;
+            color: #334155;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-cnpj { background-color: #dcfce7; color: #166534; }
+        .badge-cpf { background-color: #dbeafe; color: #1e40af; }
+
+        .phone-span {
+            font-family: monospace;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #475569;
+        }
+
+        .ignore {
+            color: #cbd5e1;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Nova Estrutura de Tabela</h1>
+        <p>Simulação atualizada com a nova ordem das colunas</p>
+    </div>
+
+    <div class="container">
+        <table id="tabelaResultados">
+            <thead>
+                <tr>
+                    <th>Nome do Cliente (0)</th>
+                    <th>Município (1)</th>
+                    <th>Telefone (2)</th>
+                    <th>Email (3)</th>
+                    <th>Tipo (4)</th>
+                    <th>Vencimento (5)</th>
+                    <th>Indicação (6)</th>
+                    <th>Renovou (7)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>João Silva</td>
+                    <td class="ignore">São Paulo</td>
+                    <td><span class="phone-span">(11) 98765-4321</span></td>
+                    <td class="ignore">joao@email.com</td>
+                    <td><span class="badge badge-cpf">e-CPF A1</span></td>
+                    <td>25/04/2026</td>
+                    <td class="ignore">Contador ABC</td>
+                    <td class="ignore">Não</td>
+                </tr>
+                <tr>
+                    <td>Empresa Tech Soluções</td>
+                    <td class="ignore">Curitiba</td>
+                    <td><span class="phone-span">11912345678</span></td>
+                    <td class="ignore">contato@tech.com</td>
+                    <td><span class="badge badge-cnpj">e-CNPJ A3</span></td>
+                    <td>20/04/2026</td>
+                    <td class="ignore">Direto</td>
+                    <td class="ignore">Não</td>
+                </tr>
+                <tr>
+                    <td>Maria Oliveira Santos</td>
+                    <td class="ignore">Rio de Janeiro</td>
+                    <td><span class="phone-span">21 99988-7766</span></td>
+                    <td class="ignore">maria@email.com</td>
+                    <td><span class="badge badge-cpf">e-CPF A1</span></td>
+                    <td>15/04/2026</td>
+                    <td class="ignore">Indicação: Web</td>
+                    <td class="ignore">Sim</td>
+                </tr>
+                <tr>
+                    <td>Padaria do Porto ME</td>
+                    <td class="ignore">Santos</td>
+                    <td><span class="phone-span">(13) 90000-1111</span></td>
+                    <td class="ignore">porto@padaria.com</td>
+                    <td><span class="badge badge-cnpj">e-CNPJ A1</span></td>
+                    <td>10/05/2026</td>
+                    <td class="ignore">Google</td>
+                    <td class="ignore">Não</td>
+                </tr>
+                <tr>
+                    <td>Lucas Ferreira Export</td>
+                    <td class="ignore">Campinas</td>
+                    <td><span class="phone-span">1933445566</span></td>
+                    <td class="ignore">lucas@export.com</td>
+                    <td><span class="badge badge-cnpj">e-CNPJ A3</span></td>
+                    <td>01/01/2025</td>
+                    <td class="ignore">Parceiro X</td>
+                    <td class="ignore">Não</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top: 30px; text-align: center; color: #94a3b8; font-size: 0.875rem;">
+        Nota: As colunas em cinza são ignoradas pela extensão conforme a nova lógica.
+    </div>
+
+</body>
+</html>
