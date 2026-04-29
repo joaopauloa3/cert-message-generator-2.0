@@ -153,15 +153,36 @@ function renderTemplates() {
 function fillTemplate(templateText, client) {
   let dateEnd = client.dateEnd;
   let [day, month, year] = dateEnd.split("/");
-  let dateEndFormated = new Date(year, month - 1, day);
+  
+  // Garantir que temos 3 partes e o ano tem 4 dígitos (ou tentar inferir)
+  let dateEndFormated;
+  if (day && month && year) {
+    dateEndFormated = new Date(year, month - 1, day);
+  } else {
+    // Fallback para outros formatos de data caso venha diferente
+    dateEndFormated = new Date(dateEnd);
+  }
+
   let today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  let status = (dateEndFormated >= today) ? "vence" : "venceu";
+  let status = "vence"; // Valor padrão de segurança
+
+  if (!isNaN(dateEndFormated.getTime())) {
+    dateEndFormated.setHours(0, 0, 0, 0);
+
+    if (dateEndFormated > today) {
+      status = "vai vencer";
+    } else if (dateEndFormated.getTime() === today.getTime()) {
+      status = "vence hoje";
+    } else {
+      status = "venceu";
+    }
+  }
 
   let text = templateText;
   text = text.replace(/@nome/g, client.name);
-  text = text.replace(/@empresa/g, client.name); // Using client.name for both as per existing logic
+  text = text.replace(/@empresa/g, client.name);
   text = text.replace(/@data/g, client.dateEnd);
   text = text.replace(/@tipo-certificado/g, client.type);
   text = text.replace(/@status/g, status);
